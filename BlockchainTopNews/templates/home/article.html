@@ -1,29 +1,30 @@
-﻿
+﻿{% load staticfiles %}
 
 <html class="no-js">
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="keywords" content="" />
-    <meta name="description" content="phith0n的小站，长期存在与分享关于网络安全与各种编程的原创文章。" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <meta name="keywords" content=""/>
+    <meta name="description" content="phith0n的小站，长期存在与分享关于网络安全与各种编程的原创文章。"/>
     <title>XRay旅行记 - 从内部项目到社区项目的蜕变 | 离别歌</title>
-    <link rel="alternate" type="application/atom+xml" href="/feed/" title="离别歌" />
-    <link href="css/base_1.css" rel="stylesheet" type="text/css" />
-    <link href="css/style_1.css" rel="stylesheet" type="text/css" />
-    <script src="js/jquery-1.9.1.min_1.js"></script>
-    <script src="js/common_tpl_1.js" type="text/javascript"></script>
-    <link rel="shortcut icon" href="/static/deep/images/favicon.ico" />
-    
-<style>
-div.row .col-xs-4 {
-  float: left;
-  margin-left: 4px;
-}
-div.row .col-xs-4 img {
-  margin-left: 5px;
-}
-</style>
-<link href="css/jquery.fancybox.min_1.css" rel="stylesheet">
-<link rel="stylesheet" href="css/code_1.css">
+    <link rel="alternate" type="application/atom+xml" href="/feed/" title="离别歌"/>
+    <link href="{% static 'home/css/base_1.css' %}" rel="stylesheet" type="text/css"/>
+    <link href="{% static 'home/css/style_1.css' %}" rel="stylesheet" type="text/css"/>
+    <script src="{% static 'home/js/jquery-1.9.1.min_1.js' %}"></script>
+    <script src="{% static 'home/js/common_tpl_1.js' %}" type="text/javascript"></script>
+    <link rel="shortcut icon" href="/static/deep/images/favicon.ico"/>
+
+    <style>
+        div.row .col-xs-4 {
+            float: left;
+            margin-left: 4px;
+        }
+
+        div.row .col-xs-4 img {
+            margin-left: 5px;
+        }
+    </style>
+    <link href="{% static 'home/css/jquery.fancybox.min_1.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'home/css/code_1.css' %}">
 
 </head>
 <body>
@@ -34,41 +35,42 @@ div.row .col-xs-4 img {
     <div class="container">
         <h1 class="h1-title">
             <a href="/">
-               <img src="picture/logo_1.png" alt="离别歌" />
+                <img src="{% static 'upload/images/logo_1.png' %}" alt="离别歌"/>
             </a>
         </h1>
         <div id="nav">
-        <input type="checkbox" id="button">
-        <label for="button" onclick>菜单</label>
-        
-        <ul>
-            
-            <li class="item ">
-                <a href="/" >首页</a>
-            </li>
-            
-            <li class="item ">
-                <a href="/list/" >文章</a>
-            </li>
-            
-            <li class="item ">
-                <a href="/other/tinger.html" >关于</a>
-            </li>
-            
-            <li class="item ">
-                <a href="/other/friends-link.html" >友链</a>
-            </li>
-            
-            <li class="item ">
-                <a href="https://github.com/phith0n" target="_blank" >项目</a>
-            </li>
-            
-            <li class="item ">
-                <a href="https://www.leavesongs.com/PENETRATION/code-auditor-secret-group.html" target="_blank" >代码审计</a>
-            </li>
-            
-        </ul>
-        
+            <input type="checkbox" id="button">
+            <label for="button" onclick>菜单</label>
+
+            <ul>
+
+                <li class="item ">
+                    <a href="/">首页</a>
+                </li>
+
+                <li class="item ">
+                    <a href="/list/">文章</a>
+                </li>
+
+                <li class="item ">
+                    <a href="/other/tinger.html">关于</a>
+                </li>
+
+                <li class="item ">
+                    <a href="/other/friends-link.html">友链</a>
+                </li>
+
+                <li class="item ">
+                    <a href="https://github.com/phith0n" target="_blank">项目</a>
+                </li>
+
+                <li class="item ">
+                    <a href="https://www.leavesongs.com/PENETRATION/code-auditor-secret-group.html"
+                       target="_blank">代码审计</a>
+                </li>
+
+            </ul>
+
         </div>
     </div>
 </div>
@@ -79,9 +81,9 @@ div.row .col-xs-4 img {
             <div class="place">
                 <a href="/">首页</a>
                 &raquo;
-                
-                资源分享 &raquo; <a href="/SHARE/xray-introduce.html">XRay旅行记 - 从内部项目到社区项目的蜕变</a>
-                
+
+                {{ article.category.name }} &raquo; <a href="/article/{{ article.pk }}/">{{ article.title }}</a>
+
             </div>
         </div>
     </div>
@@ -89,435 +91,446 @@ div.row .col-xs-4 img {
 <div class="container">
     <div class="col-11 columns" id="mainbody" role="main">
         <div class="post-single type-post">
-            <h1 class="article-h1">XRay旅行记 - 从内部项目到社区项目的蜕变</h1>
+            <h1 class="article-h1">{{ article.title }}</h1>
             <div class="details-up">
-  <span class="author">作者: phithon</span>
-  
-  <span class="category">分类: <a href="/sort/SHARE">资源分享</a></span>
-  
-  <span class="date">时间: 2019-10-22 11:22</span>
-  <span class="comments-top" itemprop="interactionCount">评论：<a itemprop="discussionUrl" href="/SHARE/xray-introduce.html#reply-list">4条评论</a></span>
-  <span class="comments-top" itemprop="interactionCount">浏览：<a itemprop="discussionUrl" href="/SHARE/xray-introduce.html">3188人看过</a></span>
-  
-  <span class="date">标签:
-    
-        <a href="/tag/xray">xray</a>
-    
+                <span class="author">作者: {{ article.author }}</span>
+
+                <span class="category">分类: <a href="/sort/SHARE">{{ article.category.name }}</a></span>
+
+                <span class="date">时间: {{ article.created_time }}</span>
+                <span class="comments-top" itemprop="interactionCount">评论：<a itemprop="discussionUrl"
+                                                                             href="/SHARE/xray-introduce.html#reply-list">0条评论</a></span>
+                <span class="comments-top" itemprop="interactionCount">浏览：<a itemprop="discussionUrl"
+                                                                             href="/SHARE/xray-introduce.html">{{ article.views }}人看过</a></span>
+
+                <span class="date">标签:
+                    {% for tag in article.tags.all %}
+                        <a href="/tag/xray">{{ tag.name }}</a>
+                    {% endfor %}
   </span>
-  
-</div>
+
+            </div>
             <div class="entry">
-                <p>在上周六的攻必克，守必固——xray第二期线下技术沙龙上，我分享了一下我们xray开发团队做扫描器的想法和过程，包括一些解决的问题。</p>
-<p>预览PPT：</p>
-<p><script async class="speakerdeck-embed" data-id="2c1a7fa6a89845e7a0fe6f08f638777e" data-ratio="1.77777777777778" src="js/embed_1.js"></script></p>
-<p>PPT直接下载：<a href="https://vulhub.oss-cn-shanghai.aliyuncs.com/share/XRay%E6%97%85%E8%A1%8C%E8%AE%B0.pdf?spm=5176.8466032.0.dopenurl.637d14507VpYOx&amp;file=XRay%E6%97%85%E8%A1%8C%E8%AE%B0.pdf">XRay旅行记 - 从内部项目到社区项目的蜕变</a></p>
-<p>想参与我们xray的开发，包括研究一些与扫描器、WAF、HIDS、蜜罐相关内容的同学，可以看看我们的JD：</p>
-<blockquote>
-<p>安全工程师（安全研究方向）<br />
-base北京</p>
-<p>工作职责</p>
-<p>1、跟进行业内的热点攻防思路；<br />
-2、研究甲方安全场景，研究不同甲方的实际安全需求；<br />
-3、为安全产品输出安全策略；<br />
-4、对外输出研究成果，建立技术影响力。</p>
-<p>岗位要求<br />
-1、熟悉渗透测试思路，有渗透测试经验；<br />
-2、熟悉常见安全产品的对抗方法；<br />
-3、熟练掌握一门常见的脚本语言；<br />
-4、了解常见安全产品的实现方式；<br />
-5、了解甲方安全建设需求；<br />
-6、具有优秀的文档能力，能将研究成果转化为文档化的材料；<br />
-7、具有优秀的抽象能力，能将自身的安全经验梳理为方法论。</p>
-</blockquote>
-<p>简历发至：<a href="&#109;&#97;&#105;&#108;&#116;&#111;&#58;&#120;&#105;&#97;&#111;&#46;&#103;&#111;&#110;&#103;&#64;&#99;&#104;&#97;&#105;&#116;&#105;&#110;&#46;&#99;&#111;&#109;">&#120;&#105;&#97;&#111;&#46;&#103;&#111;&#110;&#103;&#64;&#99;&#104;&#97;&#105;&#116;&#105;&#110;&#46;&#99;&#111;&#109;</a></p>
+                {{ article.body }}
             </div>
             <div itemprop="keywords" class="tags-meta">
                 标签:
-                
-                    <a href="/tag/xray">xray</a>
-                
+                {% for tag in article.tags.all %}
+                    <a href="/tag/xray">{{ tag.name }}</a>
+                {% endfor %}
             </div>
             <br>
-<!--MOB SHARE BEGIN-->
-<div class="-mob-share-ui-button -mob-share-open">分享</div>
-<div class="-mob-share-ui" style="display: none">
-    <ul class="-mob-share-list">
-        <li class="-mob-share-weibo"><p>新浪微博</p></li>
-        <li class="-mob-share-qzone"><p>QQ空间</p></li>
-        <li class="-mob-share-qq"><p>QQ好友</p></li>
-        <li class="-mob-share-weixin"><p>微信</p></li>
-        <li class="-mob-share-douban"><p>豆瓣</p></li>
-        <li class="-mob-share-facebook"><p>Facebook</p></li>
-        <li class="-mob-share-twitter"><p>Twitter</p></li>
-        <li class="-mob-share-pocket"><p>Pocket</p></li>
-        <li class="-mob-share-google"><p>Google+</p></li>
-        <li class="-mob-share-youdao"><p>有道云笔记</p></li>
-        <li class="-mob-share-mingdao"><p>明道</p></li>
-        <li class="-mob-share-tumblr"><p>Tumblr</p></li>
-        <li class="-mob-share-instapaper"><p>Instapaper</p></li>
-        <li class="-mob-share-linkedin"><p>LinkedIn</p></li>
-    </ul>
-    <div class="-mob-share-close">取消</div>
-</div>
-<div class="-mob-share-ui-bg"></div>
-<script id="-mob-share" src="js/mob-share_1.js"></script>
-<!--MOB SHARE END-->
+            <!--MOB SHARE BEGIN-->
+            <div class="-mob-share-ui-button -mob-share-open">分享</div>
+            <div class="-mob-share-ui" style="display: none">
+                <ul class="-mob-share-list">
+                    <li class="-mob-share-weibo"><p>新浪微博</p></li>
+                    <li class="-mob-share-qzone"><p>QQ空间</p></li>
+                    <li class="-mob-share-qq"><p>QQ好友</p></li>
+                    <li class="-mob-share-weixin"><p>微信</p></li>
+                    <li class="-mob-share-douban"><p>豆瓣</p></li>
+                    <li class="-mob-share-facebook"><p>Facebook</p></li>
+                    <li class="-mob-share-twitter"><p>Twitter</p></li>
+                    <li class="-mob-share-pocket"><p>Pocket</p></li>
+                    <li class="-mob-share-google"><p>Google+</p></li>
+                    <li class="-mob-share-youdao"><p>有道云笔记</p></li>
+                    <li class="-mob-share-mingdao"><p>明道</p></li>
+                    <li class="-mob-share-tumblr"><p>Tumblr</p></li>
+                    <li class="-mob-share-instapaper"><p>Instapaper</p></li>
+                    <li class="-mob-share-linkedin"><p>LinkedIn</p></li>
+                </ul>
+                <div class="-mob-share-close">取消</div>
+            </div>
+            <div class="-mob-share-ui-bg"></div>
+            <script id="-mob-share" src="{% static 'home/js/mob-share_1.js' %}"></script>
+            <!--MOB SHARE END-->
 
-        <div class="qqlist">
-          <h3>订阅本站<small>(RSS)</small></h3>
-          <form method="post" target="_blank" action="https://list.qq.com/cgi-bin/qf_compose_send">
-          <input type="hidden" value="qf_booked_feedback" name="t" />
-          <input type="hidden" value="dace5c2b356504de449e7f3fc2bb59f3f6124d6563786446" name="id" />
-          <input type="text" placeholder="E-mail" value="" class="rsstxt" name="to" id="to" />
-          <button type="submit" >订阅&rarr;</button>
-          </form>
-        </div>
+            <div class="qqlist">
+                <h3>订阅本站
+                    <small>(RSS)</small>
+                </h3>
+                <form method="post" target="_blank" action="https://list.qq.com/cgi-bin/qf_compose_send">
+                    <input type="hidden" value="qf_booked_feedback" name="t"/>
+                    <input type="hidden" value="dace5c2b356504de449e7f3fc2bb59f3f6124d6563786446" name="id"/>
+                    <input type="text" placeholder="E-mail" value="" class="rsstxt" name="to" id="to"/>
+                    <button type="submit">订阅&rarr;</button>
+                </form>
+            </div>
 
 
         </div>
         <div class="post-single type-post text-center">
             <h3 style="margin-top: 0">喜欢这篇文章，扫码和我成为赞友！</h3>
-            <img src="picture/zan_1.jpg" alt="">
+            <img src="{% static 'upload/images/zan_1.jpg' %}" alt="">
         </div>
         <!-- 评论位置 -->
         <div id="comments" class="comments">
-          <h3>已有 4 条评论</h3>
+            <h3>已有 4 条评论</h3>
             <ol class="comment-list">
-            
-            
-              <li class="comment-body" id="comment-3435">
-                <div class="clearfix">
-                    <div class="comment-author">
-                        <img src="picture/bf58432148b643a8b4c41c3901b81d1b_1.jpg">
+
+
+                <li class="comment-body" id="comment-3435">
+                    <div class="clearfix">
+                        <div class="comment-author">
+                            <img src="{% static 'upload/images/bf58432148b643a8b4c41c3901b81d1b_1.jpg' %}">
+                        </div>
+                        <div class="comment-meta">
+                            <div class="fn"><a href="" target="_blank" rel="nofollow noopener">test</a></div>
+                            <p>谢谢大佬分享</p>
+                            <span class="comment-time">时间: 2019-11-07 19:49</span>
+                            <span class="comment-reply"><a href="#comment-3435" onclick="reply_to('3435','test')">回复</a></span>
+                        </div>
                     </div>
-                    <div class="comment-meta">
-                    <div class="fn"><a href="" target="_blank" rel="nofollow noopener">test</a></div>
-                    <p>谢谢大佬分享</p>
-                    <span class="comment-time">时间: 2019-11-07 19:49</span>
-                    <span class="comment-reply"><a href="#comment-3435" onclick="reply_to('3435','test')">回复</a></span>
+                </li>
+
+                <li class="comment-body" id="comment-3429">
+                    <div class="clearfix">
+                        <div class="comment-author">
+                            <img src="{% static 'upload/images/d41d8cd98f00b204e9800998ecf8427e_1.jpg' %}">
+                        </div>
+                        <div class="comment-meta">
+                            <div class="fn"><a href="" target="_blank" rel="nofollow noopener">test</a></div>
+                            <p>上PPT了</p>
+                            <span class="comment-time">时间: 2019-10-22 11:38</span>
+                            <span class="comment-reply"><a href="#comment-3429" onclick="reply_to('3429','test')">回复</a></span>
+                        </div>
                     </div>
-                </div>
-              </li>
-            
-              <li class="comment-body" id="comment-3429">
-                <div class="clearfix">
-                    <div class="comment-author">
-                        <img src="picture/d41d8cd98f00b204e9800998ecf8427e_1.jpg">
+                </li>
+
+                <li class="comment-body" id="comment-3430">
+                    <div class="clearfix">
+                        <div class="comment-author">
+                            <img src="{% static 'upload/images/d41d8cd98f00b204e9800998ecf8427e_1.jpg' %}">
+                        </div>
+                        <div class="comment-meta">
+                            <div class="fn"><a href="" target="_blank" rel="nofollow noopener">tset</a></div>
+                            <p>@test 代大佬牛批</p>
+                            <span class="comment-time">时间: 2019-10-22 16:00</span>
+                            <span class="comment-reply"><a href="#comment-3430" onclick="reply_to('3430','tset')">回复</a></span>
+                        </div>
                     </div>
-                    <div class="comment-meta">
-                    <div class="fn"><a href="" target="_blank" rel="nofollow noopener">test</a></div>
-                    <p>上PPT了</p>
-                    <span class="comment-time">时间: 2019-10-22 11:38</span>
-                    <span class="comment-reply"><a href="#comment-3429" onclick="reply_to('3429','test')">回复</a></span>
+                </li>
+
+                <li class="comment-body" id="comment-3431">
+                    <div class="clearfix">
+                        <div class="comment-author">
+                            <img src="{% static 'upload/images/d41d8cd98f00b204e9800998ecf8427e_1.jpg' %}">
+                        </div>
+                        <div class="comment-meta">
+                            <div class="fn"><a href="" target="_blank" rel="nofollow noopener">Demons</a></div>
+                            <p>@tset 代大佬牛逼</p>
+                            <span class="comment-time">时间: 2019-10-26 22:10</span>
+                            <span class="comment-reply"><a href="#comment-3431"
+                                                           onclick="reply_to('3431','Demons')">回复</a></span>
+                        </div>
                     </div>
-                </div>
-              </li>
-            
-              <li class="comment-body" id="comment-3430">
-                <div class="clearfix">
-                    <div class="comment-author">
-                        <img src="picture/d41d8cd98f00b204e9800998ecf8427e_1.jpg">
-                    </div>
-                    <div class="comment-meta">
-                    <div class="fn"><a href="" target="_blank" rel="nofollow noopener">tset</a></div>
-                    <p>@test 代大佬牛批</p>
-                    <span class="comment-time">时间: 2019-10-22 16:00</span>
-                    <span class="comment-reply"><a href="#comment-3430" onclick="reply_to('3430','tset')">回复</a></span>
-                    </div>
-                </div>
-              </li>
-            
-              <li class="comment-body" id="comment-3431">
-                <div class="clearfix">
-                    <div class="comment-author">
-                        <img src="picture/d41d8cd98f00b204e9800998ecf8427e_1.jpg">
-                    </div>
-                    <div class="comment-meta">
-                    <div class="fn"><a href="" target="_blank" rel="nofollow noopener">Demons</a></div>
-                    <p>@tset 代大佬牛逼</p>
-                    <span class="comment-time">时间: 2019-10-26 22:10</span>
-                    <span class="comment-reply"><a href="#comment-3431" onclick="reply_to('3431','Demons')">回复</a></span>
-                    </div>
-                </div>
-              </li>
-            
-            
+                </li>
+
+
             </ol>
-            
+
         </div>
 
         <div id="reply"></div>
         <div id="comment-place">
             <div id="comment-post" class="respond none-resize">
-             <div id="respond">
-                <h3 id="response">添加新评论</h3>
-                <form method="post" id="comment-form" role="form" action="#comments">
-                    <p>
-                        <label for="author" class="required">称呼</label>
-                        <input type="text" name="nickname" placeholder="昵称" maxlength="64" required id="id_nickname">
-                    </p>
-                    <p>
-                        <label for="mail">Email</label>
-                        <input type="text" name="email" placeholder="邮箱（可留空）" maxlength="254" id="id_email">
-                    </p>
-                    <p>
-                        <label for="url">网站</label>
-                        <input type="text" name="url" placeholder="链接（可留空）" maxlength="200" id="id_url">
-                    </p>
-                    <p>
-                        <label for="textarea" class="required">内容</label>
-                        <textarea name="content" cols="40" rows="6" required id="id_content">
+                <div id="respond">
+                    <h3 id="response">添加新评论</h3>
+                    <form method="post" id="comment-form" role="form" action="#comments">
+                        <p>
+                            <label for="author" class="required">称呼</label>
+                            <input type="text" name="nickname" placeholder="昵称" maxlength="64" required
+                                   id="id_nickname">
+                        </p>
+                        <p>
+                            <label for="mail">Email</label>
+                            <input type="text" name="email" placeholder="邮箱（可留空）" maxlength="254" id="id_email">
+                        </p>
+                        <p>
+                            <label for="url">网站</label>
+                            <input type="text" name="url" placeholder="链接（可留空）" maxlength="200" id="id_url">
+                        </p>
+                        <p>
+                            <label for="textarea" class="required">内容</label>
+                            <textarea name="content" cols="40" rows="6" required id="id_content">
 </textarea>
-                    </p>
-                    <p>
-                        <label style="float:left;">验证码</label>
-                        <div class="row" style="margin-top: 8px"><div class="col-xs-4"><input autocomplete="off" id="id_captcha_1" name="captcha_1" type="text" placeholder="验证码" /> <input id="id_captcha_0" name="captcha_0" type="hidden" value="0bde1d3ca93a899bb80145bcfc4147fd1fa456d3" />
-</div><div class="col-xs-4">
-<img src="picture/50dccce6c9ae4930992980e77e5c60b4.gif" alt="captcha" class="captcha" height="25" /></div></div>
-                    </p>
-                    <p>
-                        <button type="submit" class="submit">提交评论</button>
-                        <input type="hidden" name="parent" id="id_parent">
-                        <input type="hidden" name="archive" value="448" id="id_archive">
-                        <input type="hidden" name="csrfmiddlewaretoken" value="oKQVy2MkZF9sXSIhg3PuTb4N6lH8mhj1NXB90IrqDW7yyKzi4Rfs1Pi2cHW2rfKV">
-                    </p>
-                </form>
+                        </p>
+                        <p>
+                            <label style="float:left;">验证码</label>
+                        <div class="row" style="margin-top: 8px">
+                            <div class="col-xs-4"><input autocomplete="off" id="id_captcha_1" name="captcha_1"
+                                                         type="text" placeholder="验证码"/> <input id="id_captcha_0"
+                                                                                                name="captcha_0"
+                                                                                                type="hidden"
+                                                                                                value="0bde1d3ca93a899bb80145bcfc4147fd1fa456d3"/>
+                            </div>
+                            <div class="col-xs-4">
+                                <img src="{% static 'upload/images/50dccce6c9ae4930992980e77e5c60b4.gif' %}"
+                                     alt="captcha" class="captcha"
+                                     height="25"/></div>
+                        </div>
+                        </p>
+                        <p>
+                            <button type="submit" class="submit">提交评论</button>
+                            <input type="hidden" name="parent" id="id_parent">
+                            <input type="hidden" name="archive" value="448" id="id_archive">
+                            <input type="hidden" name="csrfmiddlewaretoken"
+                                   value="oKQVy2MkZF9sXSIhg3PuTb4N6lH8mhj1NXB90IrqDW7yyKzi4Rfs1Pi2cHW2rfKV">
+                        </p>
+                    </form>
                 </div>
             </div>
         </div>
 
     </div>
-    
 
 
+    <div class="col-5 columns" id="sidebar" role="complementary">
 
-<div  class="col-5 columns" id="sidebar" role="complementary">
+        <div class="widget widget_search">
+            <h3>搜索</h3>
+            <form action="/search/" id="searchform" method="get">
+                <input type="text" id="searchkey" name="keyword" value="" class="searchkey" placeholder="Search..."/>
+                <button type="submit" id="searchsubmit">Go</button>
+            </form>
+        </div>
 
-  <div class="widget widget_search">
-    <h3>搜索</h3>
-    <form action="/search/" id="searchform" method="get">
-        <input type="text" id="searchkey" name="keyword" value="" class="searchkey" placeholder="Search..."/>
-        <button type="submit"  id="searchsubmit">Go</button>
-    </form>
-  </div>
 
-  
-  <div class="widget">
-	<h3 class="widget-title">最新评论</h3>
-	<ul class="widget-list" id="recent-comment">
-    
-    
-        <li id="comment" class="clearfix">
-            <img class="avatar" src="picture/bf58432148b643a8b4c41c3901b81d1b_1.jpg" alt="%s" width="40" height="40">
-            <div class="comments-link"><cite>test</cite>：<a href="/SHARE/xray-introduce.html#comment-3435">谢谢大佬分享</a></div>
-        </li>
-    
-        <li id="comment" class="clearfix">
-            <img class="avatar" src="picture/d41d8cd98f00b204e9800998ecf8427e_1.jpg" alt="%s" width="40" height="40">
-            <div class="comments-link"><cite>test</cite>：<a href="/SHARE/xray-introduce.html#comment-3429">上PPT了</a></div>
-        </li>
-    
-        <li id="comment" class="clearfix">
-            <img class="avatar" src="picture/d41d8cd98f00b204e9800998ecf8427e_1.jpg" alt="%s" width="40" height="40">
-            <div class="comments-link"><cite>tset</cite>：<a href="/SHARE/xray-introduce.html#comment-3430">@test 代大佬牛批</a></div>
-        </li>
-    
-        <li id="comment" class="clearfix">
-            <img class="avatar" src="picture/d41d8cd98f00b204e9800998ecf8427e_1.jpg" alt="%s" width="40" height="40">
-            <div class="comments-link"><cite>Demons</cite>：<a href="/SHARE/xray-introduce.html#comment-3431">@tset 代大佬牛逼</a></div>
-        </li>
-    
-        <li id="comment" class="clearfix">
-            <img class="avatar" src="picture/d41d8cd98f00b204e9800998ecf8427e_1.jpg" alt="%s" width="40" height="40">
-            <div class="comments-link"><cite>redcon</cite>：<a href="/PENETRATION/attack-scrapy.html#comment-3424">go0st  不更新了吗？  最近在研究这个  萌新</a></div>
-        </li>
-    
-    </ul>
-  </div>
+        <div class="widget">
+            <h3 class="widget-title">最新评论</h3>
+            <ul class="widget-list" id="recent-comment">
 
-  <div class="widget widget-category">
-	<h3>分类</h3>
-	<ul id="blogsort" class="widget-list">
-    
-    
-    <li>
-        <a href="/sort/PENETRATION">网络安全<em>121</em></a>
-    </li>
-    
-    <li>
-        <a href="/sort/C">C/C++<em>32</em></a>
-    </li>
-    
-    <li>
-        <a href="/sort/PYTHON">Python<em>18</em></a>
-    </li>
-    
-    <li>
-        <a href="/sort/SHARE">资源分享<em>16</em></a>
-    </li>
-    
-    <li>
-        <a href="/sort/HTML">web前端<em>13</em></a>
-    </li>
-    
-    </ul>
-  </div>
 
-  <div class="widget widget-tag">
-	<h3>随机标签</h3>
-	<div class="tag-cloud">
-        
-        
-        <a rel="tag" href="/tag/%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8">循环链表</a>
-        
-        <a rel="tag" href="/tag/string">string</a>
-        
-        <a rel="tag" href="/tag/asp">asp</a>
-        
-        <a rel="tag" href="/tag/%E8%87%AA%E5%8A%A8%E8%AE%BE%E7%BD%AE">自动设置</a>
-        
-        <a rel="tag" href="/tag/brainfuck">brainfuck</a>
-        
-        <a rel="tag" href="/tag/java">java</a>
-        
-        <a rel="tag" href="/tag/mssql">mssql</a>
-        
-        <a rel="tag" href="/tag/fineCMS">fineCMS</a>
-        
-        <a rel="tag" href="/tag/Jquery">Jquery</a>
-        
-        <a rel="tag" href="/tag/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E">命令执行漏洞</a>
-        
-        <a rel="tag" href="/tag/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91">端口转发</a>
-        
-        <a rel="tag" href="/tag/%E9%94%AE%E7%9B%98%E8%AE%B0%E5%BD%95">键盘记录</a>
-        
-        <a rel="tag" href="/tag/webshell">webshell</a>
-        
-        <a rel="tag" href="/tag/ssrf%E6%BC%8F%E6%B4%9E">ssrf漏洞</a>
-        
-        <a rel="tag" href="/tag/%E5%8A%A0%E5%AF%86">加密</a>
-        
-        <a rel="tag" href="/tag/WAF">WAF</a>
-        
-        <a rel="tag" href="/tag/%E6%88%90%E9%95%BF">成长</a>
-        
-        <a rel="tag" href="/tag/VC++">VC++</a>
-        
-        <a rel="tag" href="/tag/%E5%B9%B3%E8%A1%A1%E6%9D%83%E9%99%90">平衡权限</a>
-        
-        <a rel="tag" href="/tag/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C">文件操作</a>
-        
-        <a rel="tag" href="/tag/%E6%9D%83%E9%87%8D">权重</a>
-        
-        <a rel="tag" href="/tag/web%E6%8C%87%E7%BA%B9">web指纹</a>
-        
-        <a rel="tag" href="/tag/gitea">gitea</a>
-        
-        <a rel="tag" href="/tag/emlog%E6%8F%92%E4%BB%B6">emlog插件</a>
-        
-        <a rel="tag" href="/tag/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E">逻辑漏洞</a>
-        
-        <a rel="tag" href="/tag/_countof">_countof</a>
-        
-        <a rel="tag" href="/tag/sprintf">sprintf</a>
-        
-        <a rel="tag" href="/tag/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1">代码审计</a>
-        
-        <a rel="tag" href="/tag/pwnhub">pwnhub</a>
-        
-        <a rel="tag" href="/tag/php7">php7</a>
-        
+                <li id="comment" class="clearfix">
+                    <img class="avatar" src="{% static 'upload/images/bf58432148b643a8b4c41c3901b81d1b_1.jpg' %}"
+                         alt="%s" width="40"
+                         height="40">
+                    <div class="comments-link"><cite>test</cite>：<a href="/SHARE/xray-introduce.html#comment-3435">谢谢大佬分享</a>
+                    </div>
+                </li>
+
+                <li id="comment" class="clearfix">
+                    <img class="avatar" src="{% static 'upload/images/d41d8cd98f00b204e9800998ecf8427e_1.jpg' %}"
+                         alt="%s" width="40"
+                         height="40">
+                    <div class="comments-link"><cite>test</cite>：<a
+                            href="/SHARE/xray-introduce.html#comment-3429">上PPT了</a></div>
+                </li>
+
+                <li id="comment" class="clearfix">
+                    <img class="avatar" src="{% static 'upload/images/d41d8cd98f00b204e9800998ecf8427e_1.jpg' %}"
+                         alt="%s" width="40"
+                         height="40">
+                    <div class="comments-link"><cite>tset</cite>：<a href="/SHARE/xray-introduce.html#comment-3430">@test
+                        代大佬牛批</a></div>
+                </li>
+
+                <li id="comment" class="clearfix">
+                    <img class="avatar" src="{% static 'upload/images/d41d8cd98f00b204e9800998ecf8427e_1.jpg' %}"
+                         alt="%s" width="40"
+                         height="40">
+                    <div class="comments-link"><cite>Demons</cite>：<a href="/SHARE/xray-introduce.html#comment-3431">@tset
+                        代大佬牛逼</a></div>
+                </li>
+
+                <li id="comment" class="clearfix">
+                    <img class="avatar" src="{% static 'upload/images/d41d8cd98f00b204e9800998ecf8427e_1.jpg' %}"
+                         alt="%s" width="40"
+                         height="40">
+                    <div class="comments-link"><cite>redcon</cite>：<a
+                            href="/PENETRATION/attack-scrapy.html#comment-3424">go0st 不更新了吗？ 最近在研究这个 萌新</a></div>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="widget widget-category">
+            <h3>分类</h3>
+            <ul id="blogsort" class="widget-list">
+
+
+                <li>
+                    <a href="/sort/PENETRATION">网络安全<em>121</em></a>
+                </li>
+
+                <li>
+                    <a href="/sort/C">C/C++<em>32</em></a>
+                </li>
+
+                <li>
+                    <a href="/sort/PYTHON">Python<em>18</em></a>
+                </li>
+
+                <li>
+                    <a href="/sort/SHARE">资源分享<em>16</em></a>
+                </li>
+
+                <li>
+                    <a href="/sort/HTML">web前端<em>13</em></a>
+                </li>
+
+            </ul>
+        </div>
+
+        <div class="widget widget-tag">
+            <h3>随机标签</h3>
+            <div class="tag-cloud">
+
+
+                <a rel="tag" href="/tag/%E5%BE%AA%E7%8E%AF%E9%93%BE%E8%A1%A8">循环链表</a>
+
+                <a rel="tag" href="/tag/string">string</a>
+
+                <a rel="tag" href="/tag/asp">asp</a>
+
+                <a rel="tag" href="/tag/%E8%87%AA%E5%8A%A8%E8%AE%BE%E7%BD%AE">自动设置</a>
+
+                <a rel="tag" href="/tag/brainfuck">brainfuck</a>
+
+                <a rel="tag" href="/tag/java">java</a>
+
+                <a rel="tag" href="/tag/mssql">mssql</a>
+
+                <a rel="tag" href="/tag/fineCMS">fineCMS</a>
+
+                <a rel="tag" href="/tag/Jquery">Jquery</a>
+
+                <a rel="tag" href="/tag/%E5%91%BD%E4%BB%A4%E6%89%A7%E8%A1%8C%E6%BC%8F%E6%B4%9E">命令执行漏洞</a>
+
+                <a rel="tag" href="/tag/%E7%AB%AF%E5%8F%A3%E8%BD%AC%E5%8F%91">端口转发</a>
+
+                <a rel="tag" href="/tag/%E9%94%AE%E7%9B%98%E8%AE%B0%E5%BD%95">键盘记录</a>
+
+                <a rel="tag" href="/tag/webshell">webshell</a>
+
+                <a rel="tag" href="/tag/ssrf%E6%BC%8F%E6%B4%9E">ssrf漏洞</a>
+
+                <a rel="tag" href="/tag/%E5%8A%A0%E5%AF%86">加密</a>
+
+                <a rel="tag" href="/tag/WAF">WAF</a>
+
+                <a rel="tag" href="/tag/%E6%88%90%E9%95%BF">成长</a>
+
+                <a rel="tag" href="/tag/VC++">VC++</a>
+
+                <a rel="tag" href="/tag/%E5%B9%B3%E8%A1%A1%E6%9D%83%E9%99%90">平衡权限</a>
+
+                <a rel="tag" href="/tag/%E6%96%87%E4%BB%B6%E6%93%8D%E4%BD%9C">文件操作</a>
+
+                <a rel="tag" href="/tag/%E6%9D%83%E9%87%8D">权重</a>
+
+                <a rel="tag" href="/tag/web%E6%8C%87%E7%BA%B9">web指纹</a>
+
+                <a rel="tag" href="/tag/gitea">gitea</a>
+
+                <a rel="tag" href="/tag/emlog%E6%8F%92%E4%BB%B6">emlog插件</a>
+
+                <a rel="tag" href="/tag/%E9%80%BB%E8%BE%91%E6%BC%8F%E6%B4%9E">逻辑漏洞</a>
+
+                <a rel="tag" href="/tag/_countof">_countof</a>
+
+                <a rel="tag" href="/tag/sprintf">sprintf</a>
+
+                <a rel="tag" href="/tag/%E4%BB%A3%E7%A0%81%E5%AE%A1%E8%AE%A1">代码审计</a>
+
+                <a rel="tag" href="/tag/pwnhub">pwnhub</a>
+
+                <a rel="tag" href="/tag/php7">php7</a>
+
+            </div>
+        </div>
+
+        <div class="widget widget-recent-entries">
+            <h3 class="widget-title">热门日志</h3>
+            <ul id="hotlog" class="widget-list">
+
+
+                <li><a href="/other/tinger.html">About.Me</a></li>
+
+                <li><a href="/PHP/phpdelfile.html">php遍历目录&amp;删除指定文件中指定内容</a></li>
+
+                <li><a href="/THINK/banjia.html">博客搬家成功</a></li>
+
+                <li><a href="/PENETRATION/apache-cve-2017-15715-vulnerability.html">利用最新Apache解析漏洞（CVE-2017-15715）绕过上传黑名单</a>
+                </li>
+
+                <li><a href="/C/CGIforC_1.html">C语言CGI编程入门(一)</a></li>
+
+            </ul>
+        </div>
+
+
     </div>
-  </div>
-
-  <div class="widget widget-recent-entries">
-	<h3 class="widget-title">热门日志</h3>
-	<ul id="hotlog" class="widget-list">
-    
-    
-        <li><a href="/other/tinger.html">About.Me</a></li>
-    
-        <li><a href="/PHP/phpdelfile.html">php遍历目录&amp;删除指定文件中指定内容</a></li>
-    
-        <li><a href="/THINK/banjia.html">博客搬家成功</a></li>
-    
-        <li><a href="/PENETRATION/apache-cve-2017-15715-vulnerability.html">利用最新Apache解析漏洞（CVE-2017-15715）绕过上传黑名单</a></li>
-    
-        <li><a href="/C/CGIforC_1.html">C语言CGI编程入门(一)</a></li>
-    
-    </ul>
-  </div>
-  
-
-</div>
 </div>
 
 <div id="footer">
-	<!-- copyright -->
-	<div class="container">
-		<div class="row remove-bottom">
-			<div class="col-6 columns">
-			<h3>Little About</h3>
-			<p>Phithon 非强迫症小青年  <br>
-现居先 <br>
-爱好：种花、买书、收藏明信片 <br>
-欢迎各大组织收留 <br>
-E-mail：root@leavesongs.com </p>
-			</div>
+    <!-- copyright -->
+    <div class="container">
+        <div class="row remove-bottom">
+            <div class="col-6 columns">
+                <h3>Little About</h3>
+                <p>Phithon 非强迫症小青年 <br>
+                    现居先 <br>
+                    爱好：种花、买书、收藏明信片 <br>
+                    欢迎各大组织收留 <br>
+                    E-mail：root@leavesongs.com </p>
+            </div>
 
-			<div class="col-10 columns">
+            <div class="col-10 columns">
 
-				<h3 class="mobile-hide">Follow me</h3>
-        <div id="social-links">
-          <a href="http://weibo.com/101yx" class="sweibo" target="_blank" title="新浪微博">新浪微博</a>
-          <a href="javascript:alert(/没有腾讯微博哟/)" class="qweibo" target="_blank" title="腾讯微博">腾讯微博</a>
-          <a href="javascript:alert(/墙外有什么/);window.open('http://google.com')" class="google" target="_blank" title="墙外的世界">google+</a>
-          <a href="https://github.com/phith0n" class="github" target="_blank" title="Github">github</a>
-          <a href="javascript:confirm(/mailto:root#leavesongs.com/)" class="mail" target="_blank" title="私信给我">私信给我</a>
-          <a href="/feed/" target="_blank" class="rss" title="离别歌">RSS订阅</a>
-        </div>
-        <div class="bot-line"></div>
-				<p class="copyright">
-	Copyright &copy; Powered by talkbook
-				&nbsp;&nbsp;<i>Designed and built with all the love in the world by <a href="https://www.leavesongs.com" target="_blank">Phithon</a> && deepsky </i>
+                <h3 class="mobile-hide">Follow me</h3>
+                <div id="social-links">
+                    <a href="http://weibo.com/101yx" class="sweibo" target="_blank" title="新浪微博">新浪微博</a>
+                    <a href="javascript:alert(/没有腾讯微博哟/)" class="qweibo" target="_blank" title="腾讯微博">腾讯微博</a>
+                    <a href="javascript:alert(/墙外有什么/);window.open('http://google.com')" class="google" target="_blank"
+                       title="墙外的世界">google+</a>
+                    <a href="https://github.com/phith0n" class="github" target="_blank" title="Github">github</a>
+                    <a href="javascript:confirm(/mailto:root#leavesongs.com/)" class="mail" target="_blank"
+                       title="私信给我">私信给我</a>
+                    <a href="/feed/" target="_blank" class="rss" title="离别歌">RSS订阅</a>
+                </div>
+                <div class="bot-line"></div>
+                <p class="copyright">
+                    Copyright &copy; Powered by talkbook
+                    &nbsp;&nbsp;<i>Designed and built with all the love in the world by <a
+                        href="https://www.leavesongs.com" target="_blank">Phithon</a> && deepsky </i>
                     <a href="/template/change/">更换模板</a>
-				</p>
-			</div>
-		</div>
-	</div>
-	<!-- /copyright -->
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- /copyright -->
 </div>
 <a href="#" id="go-top">Top ↑</a>
-<script src="js/jquery.appear_1.js"></script>
-<script src="js/config_1.js"></script>
+<script src="{% static 'home/js/jquery.appear_1.js' %}"></script>
+<script src="{% static 'home/js/config_1.js' %}"></script>
 <script>
-var _hmt = _hmt || [];
-(function() {
-  var hm = document.createElement("script");
-  hm.src = "https://hm.baidu.com/hm.js?ad9ab5e37c2811b9f0979e46123fc898";
-  var s = document.getElementsByTagName("script")[0]; 
-  s.parentNode.insertBefore(hm, s);
-})();
+    var _hmt = _hmt || [];
+    (function () {
+        var hm = document.createElement("script");
+        hm.src = "https://hm.baidu.com/hm.js?ad9ab5e37c2811b9f0979e46123fc898";
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(hm, s);
+    })();
 </script>
 
-<script src="js/jquery.fancybox.pack.min_1.js"></script>
+<script src="{% static 'home/js/jquery.fancybox.pack.min_1.js' %}"></script>
 <script>
-$(document).ready(function () {
-    $(".entry a").each(function (i, e) {
-        if(e.host != 'www.leavesongs.com') {
-            e.target = '_blank';
-        }
-    });
-    $(".entry img").each(function (i, e) {
-        if(e.parentNode.tagName.toUpperCase() != 'A') {
-            $(e).wrap('<a href="'+escapeHtml(e.src)+'" class="fancybox"></a>');
-        } else {
-            $(e.parentNode).addClass('fancybox');
-        }
-    });
-    $('.fancybox').fancybox();
-})
+    $(document).ready(function () {
+        $(".entry a").each(function (i, e) {
+            if (e.host != 'www.leavesongs.com') {
+                e.target = '_blank';
+            }
+        });
+        $(".entry img").each(function (i, e) {
+            if (e.parentNode.tagName.toUpperCase() != 'A') {
+                $(e).wrap('<a href="' + escapeHtml(e.src) + '" class="fancybox"></a>');
+            } else {
+                $(e.parentNode).addClass('fancybox');
+            }
+        });
+        $('.fancybox').fancybox();
+    })
 </script>
 
 </body>
