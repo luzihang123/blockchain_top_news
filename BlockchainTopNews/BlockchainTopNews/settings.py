@@ -81,7 +81,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'BlockchainTopNews',  # 数据库名称
         'USER': 'root',  # 用户名
-        'PASSWORD': '123456',  # 密码为空
+        'PASSWORD': '12345678',  # 密码为空
         'HOST': '127.0.0.1',  # 主机
         'PORT': '3306'  # 端口
     }
